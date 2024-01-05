@@ -10,12 +10,11 @@ class SQL_Functions {
     return sql.openDatabase('users', version: 1, onCreate:
         (sql.Database db, int version) //this oncreate need function so (db,int)
         async {
-      await createTable(
-          db); //here we have to give the db as it is as database object
+      await createTable(db); //here we have to give the db as it is as database object
     }); //users is a db name
   }
 
-  ///creating table to store data
+  ///creating table to store user data
   static Future<void> createTable(sql.Database db) async {
     await db.execute(
         'CREATE TABLE UserData (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, email TEXT, password TEXT)'); //to get auto increment for id we are giving autoincrement and it should never be null
@@ -57,6 +56,38 @@ class SQL_Functions {
       return data; //we get empty data
     }
   }
+
+  ///to read all the users from the db
+  static Future<List<Map<String, dynamic>>> getALlUSer() async {
+    var db = await SQL_Functions.openOrCreateDb();
+    final allUsers = await db.rawQuery("SELECT * FROM UserData");
+    return allUsers;
+  }
+///check user is already registered
+  static Future<List<Map>> checkUser_already_registered(String email) async {
+    var db = await SQL_Functions.openOrCreateDb();
+    final user =
+        await db.rawQuery("SELECT * FROM UserData WHERE email='$email' ");
+    if (user.isNotEmpty) {
+      return user;
+    } else {
+      return user;
+    }
+  }
+
+  ///to delete a user
+  static Future<void> dltUser(int id) async {
+    var db = await SQL_Functions.openOrCreateDb();
+    db.delete('UserData', where: 'id=?', whereArgs: [id]);//if we want to give particular id can give id=1
+    //as we dont know which id will receive for delete fro our n number of user
+    //we give 'id=?',and pass that id which user click to delete in whereArgs
+  }
+
+  // static updateUser(int id, String text, String text2) {
+  //
+  // }
+
+
 }
 
 // import 'package:sqflite/sqflite.dart' as sql;

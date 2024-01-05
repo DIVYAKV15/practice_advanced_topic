@@ -12,23 +12,31 @@ void main() {
 
 class Sqflite_Login extends StatelessWidget {
   Sqflite_Login({super.key});
+
   var formKey = GlobalKey<FormState>();
+
   var eNameCntrl = TextEditingController();
+
   var passCntrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     void loginUser(String email, String pwd) async {
       //admin login
       if (email == 'admin@gmail.com' && pwd == 'admin123') {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const AdminHomePage()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const AdminHomePage()));
       } else {
         //check if user is exist in db
         var data = await SQL_Functions.checkUserExist(email, pwd);
         //print(data);
         if (data.isNotEmpty) {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) =>UserHomePage(data:data ,)));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserHomePage(
+                        data: data,
+                      ),),);
         }
       }
     }
