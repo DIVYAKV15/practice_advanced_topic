@@ -12,11 +12,8 @@ void main() {
 
 class Sqflite_Login extends StatelessWidget {
   Sqflite_Login({super.key});
-
   var formKey = GlobalKey<FormState>();
-
-  var eNameCntrl = TextEditingController();
-
+  var emailCntrl = TextEditingController();
   var passCntrl = TextEditingController();
 
   @override
@@ -51,13 +48,14 @@ class Sqflite_Login extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  controller: eNameCntrl,
+                  controller: emailCntrl,
                   validator: (email) {
                     if (email!.isEmpty || !email.contains('@')) {
                       return "invalid email";
-                    } else {
-                      return null;
                     }
+                    // else {
+                    //   return null;
+                    // }
                   },
                   decoration: const InputDecoration(
                     hintText: 'Email',
@@ -72,9 +70,10 @@ class Sqflite_Login extends StatelessWidget {
                   validator: (pass) {
                     if (pass!.isEmpty || pass.length < 6) {
                       return "invalid password";
-                    } else {
-                      return null;
                     }
+                    // else {
+                    //   return null;
+                    // }
                   },
                   decoration: const InputDecoration(
                     hintText: 'password',
@@ -86,9 +85,11 @@ class Sqflite_Login extends StatelessWidget {
               ElevatedButton(
                   onPressed: () {
                     var valid = formKey.currentState!.validate();
-                    if (valid) {
-                      loginUser(eNameCntrl.text, passCntrl.text);
-                    } else {
+                    if (valid)
+                    {
+                      loginUser(emailCntrl.text, passCntrl.text);
+                    }
+                    else {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text("invalid username/password")));
                     }
