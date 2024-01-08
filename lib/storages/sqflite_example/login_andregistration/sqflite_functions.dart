@@ -82,6 +82,13 @@ class SQL_Functions {
     //as we dont know which id will receive for delete fro our n number of user
     //we give 'id=?',and pass that id which user click to delete in whereArgs
   }
+///to update in database
+  static void update(int id,String uname, String uemail) async{
+    var db = await SQL_Functions.openOrCreateDb();
+    final newData={'name':uname,'email':uemail};
+    final newid=db.update('UserData', newData, where: 'id=?', whereArgs: [id]);
+
+  }
 
   // static updateUser(int id, String text, String text2) {
   //

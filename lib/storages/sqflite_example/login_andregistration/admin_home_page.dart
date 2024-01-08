@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'sqflite_functions.dart';
+import 'sqflite_login_page.dart';
 
 class AdminHomePage extends StatefulWidget {
   const AdminHomePage({super.key});
@@ -35,7 +36,9 @@ class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(leading: IconButton(onPressed: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Sqflite_Login()));
+      }, icon: Icon(Icons.arrow_back)),
         title: const Text("admin Page"),
       ),
       body: ListView.builder(
