@@ -109,7 +109,7 @@ class _LoginSharedState extends State<LoginShared> {
     String pass =
         pwdController.text; //iif we wnat to trim the space can add trim();
     prefs = await SharedPreferences.getInstance();
-    //if user is loogged in then mark it as not a new user
+    //if user is logged in then mark it as not a new user
     //this condition is to determine whether it should be login or logout
     //when we click the login button then only this key will create
     prefs.setBool('newUser',
