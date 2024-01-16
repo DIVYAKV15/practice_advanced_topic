@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:practice_advanced_topic/state_mgmt/provider_example/providerEx/counter_controller.dart';
 
 import 'package:provider/provider.dart';
-
-import 'providerEx/counter_controller.dart';
 
 void main() {
   runApp(MaterialApp(
     home: ChangeNotifierProvider(
-        create: (context) =>
-            CounterProvider(), //is to connect bewtween provider check the changes
-        child: Counter_Example()),
+        create: (context) => CounterProvider(), child: Counter_Example()),
   ));
 }
 
@@ -18,7 +15,6 @@ class Counter_Example extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var counterController = Provider.of<CounterProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Provider example"),
@@ -32,17 +28,26 @@ class Counter_Example extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
-                "Counter value :${counterController.counter_value.value}",
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20)),
+
+//using consumer to listen changes in changeNotifier
+            Consumer<CounterProvider>(
+              builder: (context, CounterProvider, child) => Text(
+                  "Counter value :${CounterProvider.counter_value}",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20)),
+            ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
                 onPressed: () {
-                  counterController
-                      .increment_counter(); //invoking the method from other class
+                  //using consumer to call this increment method
+                  //here no changes is going to happen in this widget
+                  //so set this as false
+                  //just monitor the changes no need to do changes
+                  Provider.of<CounterProvider>(context, listen: false)
+                      .increment_counter();
+                  //invoking the method from other class
                 },
                 child: const Icon(Icons.add))
           ],
@@ -51,4 +56,3 @@ class Counter_Example extends StatelessWidget {
     );
   }
 }
-//using consumer to listen changes in changeNotifier
