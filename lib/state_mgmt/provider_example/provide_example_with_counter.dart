@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-import 'providerEx/counter_controller.dart';
+import 'controller/counter_controller.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -32,10 +32,9 @@ class Counter_Example extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
-                "Counter value :${counterController.counter_value.value}",
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 20)),
+            Text("Counter value :${counterController.counter_value.value}",
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
             const SizedBox(
               height: 20,
             ),

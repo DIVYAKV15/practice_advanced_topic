@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:practice_advanced_topic/state_mgmt/provider_example/providerEx/counter_controller.dart';
 
 import 'package:provider/provider.dart';
+
+import 'controller/counter_controller.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -17,7 +18,7 @@ class Counter_Example extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Provider example"),
+        title: const Text("Using consumer"),
       ),
       body: Center(
         child: Column(
@@ -32,7 +33,7 @@ class Counter_Example extends StatelessWidget {
 //using consumer to listen changes in changeNotifier
             Consumer<CounterProvider>(
               builder: (context, CounterProvider, child) => Text(
-                  "Counter value :${CounterProvider.counter_value}",
+                  "Counter value :${CounterProvider.counter_value.value}",
                   style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 20)),
             ),
