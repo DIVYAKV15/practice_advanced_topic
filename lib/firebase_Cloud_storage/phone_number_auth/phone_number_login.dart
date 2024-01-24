@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+void main()
+{
+  runApp(MaterialApp(home: Phone_number_Login(),));
+}
 
 class Phone_number_Login extends StatelessWidget {
 Phone_number_Login({super.key});
@@ -39,7 +43,7 @@ Widget build(BuildContext context) {
               controller: pass_controller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Enter Your password",
+                hintText: "Enter Your Otp",
               ),
             ),
           ),

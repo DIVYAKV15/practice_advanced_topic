@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
-        title: Text("Fire base Crud Operations"),
+        title: const Text("Fire base Crud Operations"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -74,7 +74,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
             onPressed: () {
               addUser();
             },
-            child: Text("Add User"),
+            child: const Text("Add User"),
           ),
           //snapshot is object for async snapshot class
           // the given is user is there in firebase or not
@@ -90,7 +90,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
                   return Text("error ${snapshot.error}");
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 }
                 final user = snapshot.data!
                     .docs; //all the documents from the collection of firebase
@@ -114,12 +114,12 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
                                     onPressed: () {
                                       editUser(usersId);
                                     },
-                                    icon: Icon(Icons.edit)),
+                                    icon: const Icon(Icons.edit)),
                                 IconButton(
                                   onPressed: () {
                                     deleteUSer(usersId);
                                   },
-                                  icon: Icon(Icons.delete),
+                                  icon: const Icon(Icons.delete),
                                 ),
                               ],
                             ),
@@ -157,18 +157,18 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text("update USer"),
+            title: const Text("update USer"),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextField(
                   controller: newNameCntrller,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: "enter name", border: OutlineInputBorder()),
                 ),
                 TextField(
                   controller: newEmailCntrller,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       hintText: "enter email", border: OutlineInputBorder()),
                 ),
               ],
@@ -181,7 +181,7 @@ class _FirebaseCrudState extends State<FirebaseCrud> {
                       Navigator.pop(context);
                     });
                   },
-                  child: Text("Update")),
+                  child: const Text("Update")),
             ],
           );
         });

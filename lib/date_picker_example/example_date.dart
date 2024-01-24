@@ -43,7 +43,7 @@ class _DatePickExampleState extends State<DatePickExample> {
           //  setState(() {
           //    DateController.text=pickedDate as String;
           //  });
-          readOnly: true, // when true user cannot edit text
+          readOnly: true, // no need to type just pick date from calender,user cannot edit
           decoration: const InputDecoration(
             labelText: "enter date",
             icon: Icon(Icons.calendar_month), //icon of text field
