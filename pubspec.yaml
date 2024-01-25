@@ -48,6 +48,11 @@ dependencies:
   firebase_storage: ^11.6.0 #to store image,audio,video
   image_picker: ^1.0.7 #to access our gallery
   path:
+  # api integration
+  http: ^1.2.0
+  flutter_staggered_grid_view: ^0.4.1
+  cached_network_image: ^3.2.1
+  #add get for state mgmt
 
 
 dev_dependencies:

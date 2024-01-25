@@ -13,7 +13,8 @@ class ProductListScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: controller.navigateToCartScreen));
+          Navigator.push(context,
+              MaterialPageRoute(builder: controller.navigateToCartScreen));
         },
         child: Badge(
           label: Obx(
