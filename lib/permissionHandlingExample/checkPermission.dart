@@ -3,7 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: PermissionCheck(),
   ));
 }
@@ -23,25 +23,25 @@ class PermissionCheck extends StatelessWidget {
             onPressed: () {
               askCameraPermission(context);
             },
-            child: Text("Camera Permission"),
+            child: const Text("Camera Permission"),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           ElevatedButton(
             onPressed: () {
               askMultiPermission();
             },
-            child: Text("MultiPermission"),
+            child: const Text("MultiPermission"),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           ElevatedButton(
             onPressed: () {
               openSettings();
             },
-            child: Text("app  Settings"),
+            child: const Text("app  Settings"),
           ),
         ],
       ),
@@ -58,7 +58,7 @@ class PermissionCheck extends StatelessWidget {
       picker.pickImage(source: ImageSource.camera);
     } else if (status.isDenied) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Permission Denied")));
+          .showSnackBar(const SnackBar(content: Text("Permission Denied")));
     }
 
     if (await Permission.camera.request().isGranted) {
