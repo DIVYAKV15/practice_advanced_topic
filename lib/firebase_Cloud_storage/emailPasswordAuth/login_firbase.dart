@@ -83,7 +83,7 @@ class LoginFirebase extends StatelessWidget {
                             builder: (context) => const HomeFirebase()));
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Email/password is incorrect")));
+                        const SnackBar(content: Text("email incorrect")));
                   }
                 });
               },
