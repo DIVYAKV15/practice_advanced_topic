@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:practice_advanced_topic/state_mgmt/provider_example/controller/themeController.dart';
 import 'package:provider/provider.dart';
 
-
 void main() {
   runApp(MaterialApp(
       home: ChangeNotifierProvider(
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
         theme: Provider.of<ThemeProvider>(context).isDarkTheme
             ? ThemeData.dark()
             : ThemeData.light(),
-       //if no changes need in theme then we can set like this either dark or light
-       // darkTheme: ThemeData.dark(), //basically app theme is dark so defining here once button clicked it change to light
+        //if no changes need in theme then we can set like this either dark or light
+        // darkTheme: ThemeData.dark(), //basically app theme is dark so defining here once button clicked it change to light
         home: ChangeAppTheme());
   }
 }

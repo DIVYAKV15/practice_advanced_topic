@@ -12,7 +12,20 @@
           "package_name": "com.advanced.practice_advanced_topic"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1088459541617-ur1g9531d4rqb92hhrn5m9v1l2ajrc31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.advanced.practice_advanced_topic",
+            "certificate_hash": "60a8d000524ac6b6ff6c6b439e638a1d182e86cd"
+          }
+        },
+        {
+          "client_id": "1088459541617-kt5rc41otj8dt2ses4eupe3ji9h835h3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBj-VjV_vD-mxwM03Gk0aZjH5EN0stuCYY"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088459541617-kt5rc41otj8dt2ses4eupe3ji9h835h3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088459541617-4bbbv0f37gr1s6e7kesdgvps7kfi5bcn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.advanced.practiceAdvancedTopic"
+              }
+            }
+          ]
         }
       }
     }

@@ -29,7 +29,7 @@ class _MediaQueryWidgetState extends State<_MediaQueryWidget> {
 
   @override
   Widget build(BuildContext context) {
-    assert(debugCheckHasMediaQuery(context));
+   // assert(debugCheckHasMediaQuery(context));
 
     media = MediaQuery.of(context);
 

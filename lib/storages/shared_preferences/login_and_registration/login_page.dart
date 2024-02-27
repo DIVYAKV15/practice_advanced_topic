@@ -19,6 +19,7 @@ class LoginShared extends StatefulWidget {
 class _LoginSharedState extends State<LoginShared> {
   //entire forms state validation we need key
   late bool newUser;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -41,6 +42,7 @@ class _LoginSharedState extends State<LoginShared> {
   var unameController = TextEditingController();
   var pwdController = TextEditingController();
   late SharedPreferences prefs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

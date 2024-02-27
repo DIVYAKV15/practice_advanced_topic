@@ -58,10 +58,9 @@ class _AnimIconState extends State<AnimIcon>
 //to monitor state change of animation we need animation controller
 //some functions can't be null as built in classes
 //so in that case we use late
-//nammalde app le illa animation nammade phone il correct ayitu sync agi varan
+//nammalde app le ila animation nammade phone il correct ayitu sync agi varan
 //vsync(vertical synchronization) ->inbetween animation and screen synchronization -ticker provider
 ///the AnimationController allows you to “control” the animation.
 /// To do that, it needs a vsync value of type TickerProvider.
-/// a Ticker basically keeps track of Flutter’s frames rendering and allows the controller to follow that ticker
-/// and “animate” through it within the specified duration,
+/// a Ticker basically keeps track of Flutter’s frames rendering and allows the controller to follow that ticker and “animate” through it within the specified duration,
 ///while linearly producing values between the lowerBound and the upperBound values which are by default 0 & 1.

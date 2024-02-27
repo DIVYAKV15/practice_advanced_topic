@@ -60,7 +60,7 @@ class _FireMediaStorageState extends State {
             child: FutureBuilder(
 
                 ///images returned from method
-                future: loadmedia(),// list of map images will be return here
+                future: loadmedia(), // list of map images will be return here
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return ListView.builder(
@@ -93,7 +93,7 @@ class _FireMediaStorageState extends State {
   }
 
   Future<void> upload(String imgFrom) async {
-    final picker = ImagePicker();
+    final ImagePicker picker = ImagePicker();
     XFile? PickedImage;
     try {
       PickedImage = await picker.pickImage(
@@ -104,7 +104,7 @@ class _FireMediaStorageState extends State {
       try {
         //to upload our image in cloud storage
         //instead of adding phone name
-        //add one textfield with the name and give controller.text to change name according to person
+        //add one text field with the name and give controller.text to change name according to person
         //ref=>is to create image reference in storage
         await storage.ref(filename).putFile(
             imageFile,
@@ -124,29 +124,31 @@ class _FireMediaStorageState extends State {
     }
   }
 
-  ///load images form firebase
-  // we stored there as map uploadedby  and time and all so have to use map to load
-
-//list of images we receive from storage
+  ///load images from firebase
+  // we stored there as map uploaded by  and time and all so have to use map to load
+  //list of images we receive from storage
   Future<List<Map<String, dynamic>>> loadmedia() async {
-    List<Map<String, dynamic>> images = [];
-    final ListResult result = await storage.ref().list(); //here we recei
-//reference is to for images like collections/document is for cloud storage
+    List<Map<String, dynamic>> images = []; //empty to store images
+    //listResult is a builtin class from  fireStorage to get the list of result
+    final ListResult result = await storage.ref().list();
+//reference is for images like collections/document is for cloud storage
     final List<Reference> allFiles =
         result.items; // all the data from firebase stored as a reference
-    //here we receive all the images
+    //here we receive all the images as map
     //from reference  going to take singleFile
     //using foreach is to iterate all the files and make it as singlefile
     await Future.forEach(allFiles, (singleFile) async {
       final String fileUrl = await singleFile
           .getDownloadURL(); // to fetch image path(path as network image path)
+      //to upload metadata using customMetaData and to get metadata using FullMetaDate
       final FullMetadata metadata =
           await singleFile.getMetadata(); // to fetch metadata from firebase
+      //adding the received images in our empty list as one by one
       images.add({
         //to add images in our gallery
         'imageUrl': fileUrl,
         'path': singleFile.fullPath,
-        //to delete we need this full path
+        //to delete we need this full path as we taking as fullpath
         'uploaded_by':
             metadata.customMetadata?['uploaded_by'] ?? metadata.fullPath,
         //metadata.fullpath is to get the same name which we stored for images

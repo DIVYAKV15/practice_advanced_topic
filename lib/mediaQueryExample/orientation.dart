@@ -77,12 +77,13 @@ class Listscreen extends StatelessWidget {
         child: ListView.builder(
           itemBuilder: (context, index) => Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                    "https://unsplash.com/photos/a-window-with-a-bunch-of-green-leaves-on-it-CdIN-5Dm7ec"),
-              ),
+              // image: DecorationImage(
+              //   fit: BoxFit.cover,
+              //   image: NetworkImage(
+              //       "https://unsplash.com/photos/a-window-with-a-bunch-of-green-leaves-on-it-CdIN-5Dm7ec"),
+              // ),
             ),
+            child: Text("hi $index"),
           ),
         ),
       ),
